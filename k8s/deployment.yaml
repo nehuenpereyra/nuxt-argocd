@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: nuxt-container
-        image: nuxt-app:latest
+        image: nuxt-app:1.0.0
         ports:
         - containerPort: 3000
 ---
