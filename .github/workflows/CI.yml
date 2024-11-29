@@ -32,7 +32,7 @@ jobs:
       with:
         token: ${{ secrets.PAT }}
         repository: ${{ github.actor }}/nuxt-k8s-argocd
-        event-type: new-image
+        event-type: new-image-nuxt-app
         client-payload: >
           {
             "image": "${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}"
