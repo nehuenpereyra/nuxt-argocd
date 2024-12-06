@@ -1,4 +1,4 @@
-name: CI
+name: Build Imagen Remote
 
 on:
   workflow_dispatch:
