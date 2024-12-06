@@ -2,7 +2,7 @@
   <div class="argo-container">
     <header class="argo-header">
       <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*WxuW-yoXiClY9Rhr.png" alt="Argo CD Logo" class="argo-logo" />
-      <h1>Bienvenido a Argo CD Dashboard (update 3)</h1>
+      <h1>Bienvenido a Argo CD Dashboard (update image local 1)</h1>
       <p>Automatización y sincronización continua para Kubernetes.</p>
     </header>
 
