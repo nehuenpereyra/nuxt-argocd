@@ -9,7 +9,20 @@ jobs:
     environment: DEV
 
     steps:
+    
     - uses: actions/checkout@v3
+
+    - name: Check if triggered by a tag
+      id: check-tag  # ID para referenciar esta tarea
+      run: |
+        if [[ $GITHUB_REF != refs/tags/* ]]; then
+          echo "This workflow can only be triggered from a tag, not from a branch."
+          exit 1  # Sale con error para evitar la ejecución
+        fi
+        # Extrae el nombre del tag eliminando 'refs/tags/'
+        TAG_NAME="${GITHUB_REF#refs/tags/}"
+        echo "Tag that triggered the workflow: $TAG_NAME"
+        echo "::set-output name=tag::$TAG_NAME"  # Define una salida llamada 'tag'
 
     - name: Repository Dispatch
       uses: peter-evans/repository-dispatch@v2
@@ -19,7 +32,7 @@ jobs:
         event-type: new-local-image-update
         client-payload: >
           {
-            "image": "nuxt-app:${{ github.sha }}",
+            "image": "nuxt-app:${{ steps.check-tag.outputs.tag }}",
             "env": "dev",
             "app": "nuxt-app"
           }
